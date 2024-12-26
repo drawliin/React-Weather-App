@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+
 body{
+  font-family: 'Montserrat', serif;
+  font-weight: 300;
   background-image: url('../images/background.jpg');
   background-size: cover;
   background-position: cover;
@@ -15,7 +20,15 @@ body{
   border-radius: 20px;
   box-shadow: 0 5px 5px rgba(107, 60, 182, 0.493);
   padding: 20px 15px;
+}
 
 
+.forecastContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: aquamarine;
+  padding: 20px;
+  margin: 20px;
 }
 
