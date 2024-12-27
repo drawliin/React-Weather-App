@@ -10,10 +10,10 @@ function App() {
       error: false
     })
 
-    const apiKey = '6rTzCAKGTG9hdGsL5ArWwVOBbutpKUGs'
+    const apiKey = '6affb41c9f8c4d092f5f95da7be6227c'
 
     useEffect(() => {
-      const url = `https://api.tomorrow.io/v4/weather/realtime?location=rabat&apikey=${apiKey}`;
+      const url = `http://api.openweathermap.org/data/2.5/forecast?q=Rabat&appid=${apiKey}`;
 
       fetch(url)
       .then(res => {
