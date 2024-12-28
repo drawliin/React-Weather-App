@@ -194,8 +194,8 @@ body{
   }
   .fiveDaysForecast{
     flex-direction: column;
-    width: 80%; 
-    margin: 0 auto; 
+    width: 80%;
+    margin: 0 auto;
   }
 
   .search {
