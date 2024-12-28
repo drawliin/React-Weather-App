@@ -3,10 +3,26 @@ import ReactAnimatedWeather from 'react-animated-weather'
 
 function Forecast({data}) {
 
-    const FiveDaysWeatherInfo = data.list.slice(0,5);
+    const FiveDaysWeatherInfo = retrieveFiveDaysWeatherInfo(data);
     const {main, weather, wind} = FiveDaysWeatherInfo[0];
     const [isCelsius, setIsCelsius] = useState(true);
 
+    function retrieveFiveDaysWeatherInfo(data){
+        let dates = [];
+        let tempData = [];
+        for(let i of data.list){
+            const date = new Date(`${i.dt_txt}`).getDate();
+            if(!dates.includes(date)){
+                tempData.push(i);
+                dates.push(date)
+            }
+            if(dates.length >= 5){
+                break;
+            }
+        }
+        return tempData;
+    }
+    
     const weatherIconMap = {
         "01d": "CLEAR_DAY",      // Clear sky - Day
         "01n": "CLEAR_NIGHT",    // Clear sky - Night
@@ -27,11 +43,12 @@ function Forecast({data}) {
         "50d": "FOG",            // Mist - Day
         "50n": "FOG"             // Mist - Night
       };
-      
+
 
     /**/
     console.log(FiveDaysWeatherInfo)
     console.log(data)
+    console.log(new Date('2024-12-28 21:00:00').getDate())
     /**/
 
     const getCurrentDate = () => {
