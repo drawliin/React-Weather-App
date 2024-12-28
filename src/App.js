@@ -18,7 +18,7 @@ function App() {
         e.preventDefault();
         setWeather({...weather, loading: true, error: false})
 
-        const url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=${apiKey}`;
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=${apiKey}`;
 
         fetch(url)
         .then(res => {
@@ -39,7 +39,7 @@ function App() {
     }
 
     useEffect(() => {
-      const url = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=Oujda&appid=${apiKey}`;
+      const url = `https://api.openweathermap.org/data/2.5/forecast?q=Oujda&appid=${apiKey}`;
 
       fetch(url)
       .then(res => {
