@@ -16,7 +16,7 @@ function App() {
     const search = (e) => {
       if(query && e.type == 'click' || query && e.type=='keypress' && e.key=="Enter"){
         e.preventDefault();
-        setWeather({...weather, loading: true})
+        setWeather({...weather, loading: true, error: false})
 
         const url = `http://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=${apiKey}`;
 
@@ -34,11 +34,12 @@ function App() {
           console.log(error);
           setWeather({data:{}, error: true, loading: false})
         })
+        setQuery('')
       }
     }
 
     useEffect(() => {
-      const url = `http://api.openweathermap.org/data/2.5/forecast?q=Chicago&appid=${apiKey}`;
+      const url = `http://api.openweathermap.org/data/2.5/forecast?q=Oujda&appid=${apiKey}`;
 
       fetch(url)
       .then(res => {
@@ -75,12 +76,12 @@ function App() {
           <>
             <br/>
             <br/>
-            <p>Loading...</p>
+            <p className='loadingMessage'>Loading...</p>
           </>
         )}
 
         {weather.error && (
-          <p>Sorry... Enter a valid city name</p>
+          <p className='errorMessage'>Sorry... Enter a valid city name</p>
         )}
 
         {weather.data && !weather.error && !weather.loading && (

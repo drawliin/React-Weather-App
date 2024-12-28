@@ -45,11 +45,7 @@ function Forecast({data}) {
       };
 
 
-    /**/
-    console.log(FiveDaysWeatherInfo)
-    console.log(data)
-    console.log(new Date('2024-12-28 21:00:00').getDate())
-    /**/
+    
 
     const getCurrentDate = () => {
         const options = {
@@ -124,7 +120,7 @@ function Forecast({data}) {
                                 <p>{new Date(element.dt * 1000).toLocaleDateString('en-US', {weekday: "short"})}</p>
                                 <ReactAnimatedWeather 
                                     icon={weatherIconMap[element.weather[0].icon]}
-                                    size={20}
+                                    size={30}
                                     animate={true}
                                 />
                                 <p>{toCelsius(element.main.temp_min)} °/ {toCelsius(element.main.temp_max)}°</p>

@@ -26,7 +26,7 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  /*background-color: aquamarine;*/
+  
   padding: 10px;
   margin: 5px 0;
 }
@@ -86,71 +86,93 @@ body{
 }
 
 .search input {
-  width: 300px; /* Adjust width as needed */
+  width: 300px; 
   padding: 10px 15px;
   font-size: 16px;
-  border: 2px solid #ccc; /* Subtle border */
-  border-radius: 25px; /* Rounded corners */
-  outline: none; /* Remove default outline */
+  border: 2px solid #ccc; 
+  border-radius: 25px; 
+  outline: none; 
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search input:focus {
-  border-color: #A569BD; /* Soft purple accent */
-  box-shadow: 0 0 8px rgba(165, 105, 189, 0.5); /* Purple glow on focus */
+  border-color: #A569BD; 
+  box-shadow: 0 0 8px rgba(165, 105, 189, 0.5);
 }
 
 .search input::placeholder {
-  color: #888; /* Lighter text for placeholder */
-  font-style: italic; /* Italic placeholder */
+  color: #888; 
+  font-style: italic; 
 }
 
 .search button {
-  background-color: #A569BD; /* Soft purple button */
-  color: #fff; /* White text */
+  background-color: #A569BD; 
+  color: #fff; 
   padding: 10px 20px;
   font-size: 16px;
-  border: none; /* Remove default border */
-  border-radius: 25px; /* Rounded corners */
+  border: none; 
+  border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search button:hover {
-  background-color: #884EA0; /* Slightly darker purple on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+  background-color: #884EA0; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .search button:active {
-  background-color: #76448A; /* Even darker purple on click */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow */
-  transform: scale(0.98); /* Subtle click animation */
+  background-color: #76448A; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: scale(0.98); 
 }
 
 /* Align Input and Button */
 .search input, button {
-  vertical-align: middle; /* Keep aligned on the same line */
-  margin: 5px; /* Small margin between elements */
+  vertical-align: middle; 
+  margin: 5px; 
 }
 
 
 .fiveDaysForecast{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
+  padding: 15px;
+  background-color: #f4f9ff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .fiveDaysForecast div{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-width: 100px;
   font-weight: 400;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0px 3px 6px 3px hsla(0, 3%, 65%, 0.842);
+  flex: 1;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #d4ddec;
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.fiveDaysForecast div p{
+  margin: 5px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+.fiveDaysForecast div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-
-
+.loadingMessage{
+  font-size: 1.2em;
+  color: #6c757d; 
+  font-style: italic;
+  animation: fadeInOut 1.5s infinite;
+}
+.errorMessage{
+  font-size: 1.2em;
+  color: #d9534f;
+  font-weight: bold;
+  margin-top: 10px;
+}
