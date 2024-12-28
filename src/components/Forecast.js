@@ -1,10 +1,33 @@
 import React, {useState} from 'react'
+import ReactAnimatedWeather from 'react-animated-weather'
 
 function Forecast({data}) {
 
     const FiveDaysWeatherInfo = data.list.slice(0,5);
     const {main, weather, wind} = FiveDaysWeatherInfo[0];
     const [isCelsius, setIsCelsius] = useState(true);
+
+    const weatherIconMap = {
+        "01d": "CLEAR_DAY",      // Clear sky - Day
+        "01n": "CLEAR_NIGHT",    // Clear sky - Night
+        "02d": "PARTLY_CLOUDY_DAY",  // Few clouds - Day
+        "02n": "PARTLY_CLOUDY_NIGHT", // Few clouds - Night
+        "03d": "CLOUDY",         // Scattered clouds - Day
+        "03n": "CLOUDY",         // Scattered clouds - Night
+        "04d": "CLOUDY",         // Broken clouds - Day
+        "04n": "CLOUDY",         // Broken clouds - Night
+        "09d": "RAIN",           // Shower rain - Day
+        "09n": "RAIN",           // Shower rain - Night
+        "10d": "RAIN",           // Rain - Day
+        "10n": "RAIN",           // Rain - Night
+        "11d": "WIND",           // Thunderstorm - Day
+        "11n": "WIND",           // Thunderstorm - Night
+        "13d": "SNOW",           // Snow - Day
+        "13n": "SNOW",           // Snow - Night
+        "50d": "FOG",            // Mist - Day
+        "50n": "FOG"             // Mist - Night
+      };
+      
 
     /**/
     console.log(FiveDaysWeatherInfo)
@@ -20,7 +43,6 @@ function Forecast({data}) {
         };
 
         const date = new Date().toLocaleDateString('en-US', options);
-
         return date
     }
 
@@ -35,28 +57,37 @@ function Forecast({data}) {
     return (
         <div className='forecastContainer'>
             
-            <div>
+
+            <div className='thisDayData'>
                 <h1>{data.city.name}, {data.city.country}</h1>
-                <p>{getCurrentDate()}</p>
+                <p className='currentDate'>{getCurrentDate()}</p>
 
-                <div>
-                    <span>{toCelsius(main.temp)}</span>
-                    <span onClick={() => {setIsCelsius(prvState => !prvState)}}>{isCelsius ? 'C | F' : 'F | C'}</span>
-                    
+                <div className='temp'>
+                    <ReactAnimatedWeather 
+                        icon={weatherIconMap[weather[0].icon]}
+                        size={90}
+                        animate={true}
+                    />
+                    <span>
+                        {toCelsius(main.temp)}
+                        <sup onClick={() => {setIsCelsius(prvState => !prvState)}}>{isCelsius ? '°C | °F' : '°F | °C'}</sup>
+                    </span>
+
                 </div>
-                <p>{weather[0].description}</p>
 
-                <div>
-                    <div>
-                        <span>icon</span>
+                <p className='weatherDescription'>{weather[0].description}</p>
+
+                <div className='generalInfoContainer'>
+                    <div className='generalInfo'>
+                        <ReactAnimatedWeather icon="WIND" size={40} animate={true}/>
                         <div>
                             <span>{wind.speed} m/s</span>
                             <span>Wind speed</span>
                         </div>
                     </div>
 
-                    <div>
-                        <span>icon</span>
+                    <div className='generalInfo'>
+                        <ReactAnimatedWeather icon="RAIN" size={40} animate={true} />
                         <div>
                             <span>{main.humidity} %</span>
                             <span>humidity</span>
@@ -64,6 +95,8 @@ function Forecast({data}) {
                     </div>    
                 </div>
             </div>
+
+
 
             <div>
                 <p>5-Day Forecast</p>

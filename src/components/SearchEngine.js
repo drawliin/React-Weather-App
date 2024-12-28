@@ -1,13 +1,14 @@
 import React from 'react'
 
-function SearchEngine() {
+function SearchEngine({query, setQuery, search}) {
+
   return (
-    <div>
-        <div>
-            <input type='text' placeholder='Enter City Name...' />
-            <button>Search</button>
+    
+        <div className='search'>
+            <input type='text' placeholder='Enter City Name...' value={query} onChange={(e) => setQuery(e.target.value)} onKeyPress={search}/>
+            <button onClick={search} disabled = {!query}>Search</button>
         </div>
-    </div>
+    
   )
 }
 

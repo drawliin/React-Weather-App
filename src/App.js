@@ -4,6 +4,7 @@ import Forecast from './components/Forecast';
 
 function App() {
 
+    const [query, setQuery]= useState('');
     const [weather, setWeather] = useState({
       data: '',
       loading: true,
@@ -12,8 +13,32 @@ function App() {
 
     const apiKey = '6affb41c9f8c4d092f5f95da7be6227c'
 
+    const search = (e) => {
+      if(query && e.type == 'click' || query && e.type=='keypress' && e.key=="Enter"){
+        e.preventDefault();
+        setWeather({...weather, loading: true})
+
+        const url = `http://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=${apiKey}`;
+
+        fetch(url)
+        .then(res => {
+          if (!res.ok){
+            throw new Error('Sorry... Enter a valid city')
+          }
+          return res.json()
+        })
+        .then(data => {
+          setWeather({data: data, loading: false, error: false})
+        })
+        .catch(error => {
+          console.log(error);
+          setWeather({data:{}, error: true, loading: false})
+        })
+      }
+    }
+
     useEffect(() => {
-      const url = `http://api.openweathermap.org/data/2.5/forecast?q=Rabat&appid=${apiKey}`;
+      const url = `http://api.openweathermap.org/data/2.5/forecast?q=Chicago&appid=${apiKey}`;
 
       fetch(url)
       .then(res => {
@@ -33,7 +58,7 @@ function App() {
       })
       .catch(error => {
         console.error(error);
-        setWeather({...weather, data:{}, error: true, loading: false})
+        setWeather({data:{}, error: true, loading: false})
       })
     }, [])
 
@@ -44,7 +69,7 @@ function App() {
     return (
       <div className="App">
 
-        <SearchEngine/>
+        <SearchEngine query={query} setQuery={setQuery} search={search}/>
 
         {weather.loading && (
           <>
