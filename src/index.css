@@ -64,7 +64,8 @@ body{
 
 .generalInfoContainer{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
   
 }
 .generalInfo{
