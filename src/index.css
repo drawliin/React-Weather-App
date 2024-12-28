@@ -13,7 +13,7 @@ body{
 
 .App{
   margin: 100px auto;
-  width: 90%;
+  max-width: 700px;
   min-height: 500px;
   background-color: hsla(0, 3%, 94%, 0.774);
   border-radius: 20px;
@@ -23,10 +23,8 @@ body{
 
 
 .forecastContainer{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
   margin: 5px 0;
 }
@@ -83,17 +81,38 @@ body{
 
 
 .search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
   margin: 0 25px;
+  max-width: 100%;
+}
+.search * {
+  box-sizing: border-box; 
 }
 
 .search input {
-  width: 300px; 
+  flex: 1;
+  min-width: 150px; 
   padding: 10px 15px;
   font-size: 16px;
   border: 2px solid #ccc; 
   border-radius: 25px; 
   outline: none; 
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search button {
+  flex-shrink: 0;
+  background-color: #A569BD; 
+  color: #fff; 
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none; 
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search input:focus {
@@ -106,16 +125,6 @@ body{
   font-style: italic; 
 }
 
-.search button {
-  background-color: #A569BD; 
-  color: #fff; 
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none; 
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
 
 .search button:hover {
   background-color: #884EA0; 
@@ -130,7 +139,6 @@ body{
 
 /* Align Input and Button */
 .search input, button {
-  vertical-align: middle; 
   margin: 5px; 
 }
 
@@ -146,6 +154,7 @@ body{
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .fiveDaysForecast div{
+  min-width: 85;
   font-weight: 400;
   flex: 1;
   text-align: center;
@@ -177,3 +186,36 @@ body{
   font-weight: bold;
   margin-top: 10px;
 }
+
+@media(max-width: 580px){
+
+  .thisDayData, .FFContainer {
+    width: 100%;
+  }
+  .fiveDaysForecast{
+    flex-direction: column;
+    width: 80%; 
+    margin: 0 auto; 
+  }
+
+  .search {
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .search input{
+    width: 100%;
+  }
+  .search button{
+    width: 90%;
+  }
+
+
+}
+
+
+
+
+
+
