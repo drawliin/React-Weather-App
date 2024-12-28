@@ -98,14 +98,24 @@ function Forecast({data}) {
 
 
 
-            <div>
-                <p>5-Day Forecast</p>
-                <div>
-                    <div>Thu</div>
-                    <div>Thu</div>
-                    <div>Thu</div>
-                    <div>Thu</div>
-                    <div>Thu</div>
+            <div className='FFContainer'>
+                <h1>5-Day Forecast</h1>
+                <div className='fiveDaysForecast'>
+                    {FiveDaysWeatherInfo.map((element, index) => {
+                        return(
+                            <div key={index}>
+                                <p>{new Date(element.dt * 1000).toLocaleDateString('en-US', {weekday: "short"})}</p>
+                                <ReactAnimatedWeather 
+                                    icon={weatherIconMap[element.weather[0].icon]}
+                                    size={20}
+                                    animate={true}
+                                />
+                                <p>{toCelsius(element.main.temp_min)} °/ {toCelsius(element.main.temp_max)}°</p>
+                            </div>      
+                        )
+                    })}
+                    
+                    
                 </div>
             </div>
 
