@@ -1,6 +1,6 @@
 # Weather Forecasting Application
 
-![Weather App Screenshot](https://raw.githubusercontent.com/drawliin/React-Weather-App-Picture/refs/heads/main/Capture.PNG?token=GHSAT0AAAAAAC3FOT3T4WILMAIGMXHSL3VIZ3QPS6Q)
+![Weather App Screenshot](https://raw.githubusercontent.com/drawliin/React-Weather-App-Picture/refs/heads/main/Capture.PNG?token=GHSAT0AAAAAAC3FOT3SMFIENWW6WQWLZTR6Z3QURUA)
 
 This project is a weather forecasting web application built with React. It allows users to search for weather forecasts by city name and displays the current weather and a 5-day forecast. The application fetches weather data from the OpenWeatherMap API and presents it in a user-friendly interface.
 
