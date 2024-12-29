@@ -2,6 +2,8 @@
 
 
 body{
+  margin: 0;
+  height: 100%;
   font-family: 'Poppins', serif;
   font-weight: 300;
   background-image: url('../images/background.jpg');
@@ -186,6 +188,32 @@ body{
   font-weight: bold;
   margin-top: 10px;
 }
+
+
+footer {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center; 
+  font-size: 14px; 
+  color: #6c757d; 
+  font-weight: 500; 
+  
+}
+footer a {
+  color: #A569BD; 
+  text-decoration: none; 
+  font-weight: 600; 
+  transition: color 0.3s ease; 
+}
+footer a:hover {
+  color: #884EA0; 
+  text-decoration: underline; 
+}
+
+
+
 
 @media(max-width: 580px){
 
