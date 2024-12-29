@@ -191,7 +191,7 @@ body{
 
 
 footer {
-  position: fixed;
+  position: relative;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
