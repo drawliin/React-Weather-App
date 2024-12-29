@@ -10,7 +10,7 @@ root.render(
         <App/>
         <footer>
             Built by <a target='_blank' href="https://github.com/drawliin" rel="noreferrer">Houssam Eddine Hamouich</a> | 
-            Code on <a target='_blank' href="https://github.com/drawliin/React-Weather-App" rel="noreferrer">GitHub</a> | Powered By 
+            Code on <a target='_blank' href="https://github.com/drawliin/React-Weather-App" rel="noreferrer">GitHub</a> | Powered By Netlify
         </footer>
 
     </>
