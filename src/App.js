@@ -14,7 +14,7 @@ function App() {
     const apiKey = '6affb41c9f8c4d092f5f95da7be6227c'
 
     const search = (e) => {
-      if(query && e.type == 'click' || query && e.type=='keypress' && e.key=="Enter"){
+      if((query && e.type === 'click') || (query && e.type==='keypress' && e.key==="Enter")){
         e.preventDefault();
         setWeather({...weather, loading: true, error: false})
 
